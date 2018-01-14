@@ -8,11 +8,21 @@ A shell script designed to quickly create and stand up a laravel project.
 
 * Run the following command
 
-```./laravel.sh project_name project_dir```
+```./laravel.sh ${project_name}```
 
 Project Name is the name of the project you want to create
 
-Project directory is where you want the code to live
+Out of the box this script will give you:
+
+* Laravel
+* Laravel Homestead 
+* Spatie Laravel Fractal
+* Doctrine DBAL
+* League Commonmark
+* Sentry Monitoring
+* Tailwind CSS
+* Vue Router
+* Vue Resource
 
 ### Ideas
 
