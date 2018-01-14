@@ -1,31 +1,24 @@
 #! /bin/bash
 
 PROJECT_NAME=$1;
-PROJECT_PATH=$2;
 
 if [ -z ${PROJECT_NAME} ]
   then
     echo "Error: You must supply project name"
+    exit
 fi
 
-if [ -z ${PROJECT_PATH} ]
-  then
-    echo "Error: You must specify a project path"
-fi
-
-
-
-echo "== Creating ${PROJECT_NAME} =="
-cd ${PROJECT_PATH}
-mkdir ${PROJECT_NAME}
+echo "---- Creating ${PROJECT_NAME} ----"
+cd ~/Code
+composer create-project laravel/laravel --prefer-dist ${PROJECT_NAME}
 cd ${PROJECT_NAME}
-mkdir public
-cp /Users/trask/Scripts/vagrantfile /Users/trask/Code/${PROJECT_NAME}
-echo $PWD
-cd public
-composer create-project --prefer-dist laravel/laravel ${PROJECT_NAME}
-cd ${PROJECT_NAME}/public/${PROJECT_NAME}
-echo "---- inside your project ----"
-./vendor/bin/phpunit --coverage-html docs/
-composer require predis/predis
+git init
+composer require laravel/homestead && ./vendor/bin/homestead make
+composer require spatie/laravel-fractal
+composer require doctrine/dbal
+composer require league/commonmark
+composer require sentry/sentry-laravel
+yarn add tailwindcss --save
+yarn add vue-router --save
+yarn add vue-resource --save
 echo "---- ${PROJECT_NAME} has been created. Make something awesome! ----"
