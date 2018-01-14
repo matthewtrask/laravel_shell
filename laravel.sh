@@ -21,4 +21,7 @@ composer require sentry/sentry-laravel
 yarn add tailwindcss --save
 yarn add vue-router --save
 yarn add vue-resource --save
+cp .env.example .env
+php artisan key:generate
+php artisan make:auth
 echo "---- ${PROJECT_NAME} has been created. Make something awesome! ----"
