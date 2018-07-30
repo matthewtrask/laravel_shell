@@ -18,6 +18,7 @@ composer require spatie/laravel-fractal
 composer require doctrine/dbal
 composer require league/commonmark
 composer require sentry/sentry-laravel
+composer require laravel/passport
 yarn add tailwindcss --save
 yarn add vue-router --save
 yarn add vue-resource --save
